@@ -101,7 +101,7 @@ h3 {
 .header {
   position: relative;
   color: #ffffff;
-  background: url("/dist/images/bg-header.jpg") no-repeat center center/cover;
+  background: url("../../dist/images/bg-header.jpg") no-repeat center center/cover;
 }
 .header::after {
   content: "";
