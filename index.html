@@ -40,14 +40,21 @@
 
 				<div class="header__branding">
 					<a href="#" class="header__brandingLink">
-						Mogo
+						<span class="visually-hidden">
+							Go to main page of
+						</span>
+						MoGo
 					</a>
 				</div>
-
+				<button id="toggle" class="header__menuToggle">
+					<div class="header__menuToggleLine"></div>
+					<div class="header__menuToggleLine"></div>
+					<div class="header__menuToggleLine"></div>
+				</button>
 				<nav class="header__nav" id="menu" vocab="http://schema.org" typeof="SiteNavigationElement">
 					<ul class="header__navList">
 						<li class="header__navListItem">
-							<a class="header__navListItemLink--active" href="#" rel="index">
+							<a class="header__navListItemLink header__navListItemLink--active" href="#" rel="index">
 								About
 							</a>
 						</li>
@@ -89,10 +96,10 @@
 
 			<header class="article__header">
 				<h2 class="article__title">
-					<span class="article__title--cursive">
+					<span class="article__titleText article__titleText--cursive">
 						We work with
 					</span>
-					<span class="article__title--uppercase">
+					<span class="article__titleText article__titleText--uppercase">
 						Amazing services
 					</span>
 				</h2>
@@ -107,8 +114,29 @@
 							<p class="service__text">Lorem ipsum dolor sit amet, cnsteteur adipscing elit, sed do
 								eiusmod tempor.</p>
 						</div>
-						<div class="service__iconWrapper">
-							<img class="service__icon" alt="Green icon of a clock" />
+						<div class="service__icon">
+							<svg class="service__iconImage" xml:space="preserve" width="384" height="384" xmlns="http://www.w3.org/2000/svg">
+							<Path FillMode="Winding">
+								<PathFigure IsClosed="True">
+									<PolyLine LineColor="#FF000000">
+										<Point X="0" Y="384" />
+										<Point X="0" Y="0" />
+									</PolyLine>
+									<PolyLine LineColor="#FF000000">
+										<Point X="0" Y="0" />
+										<Point X="384" Y="0" />
+									</PolyLine>
+									<PolyLine LineColor="#FF000000">
+										<Point X="384" Y="0" />
+										<Point X="384" Y="384" />
+									</PolyLine>
+									<PolyLine LineColor="#FF000000">
+										<Point X="384" Y="384" />
+										<Point X="0" Y="384" />
+									</PolyLine>
+								</PathFigure>
+							</Path>
+							</svg>
 						</div>
 					</section>
 
@@ -118,19 +146,26 @@
 							<p class="service__text">Ipsum dolor sit amet, cosectetur adipiscin elit, sed do eiusmod
 								tempor..</p>
 						</div>
-						<div class="service__iconWrapper">
-							<img class="service__icon" alt="Green icon of a increasing line chart" />
+						<div class="service__icon">
+							<!-- <img src="./dist/images/icons/data-chart.svg" class="service__iconImage" alt="Green icon of a increasing line chart" /> -->
+							<svg class="service__iconImage" xml:space="preserve" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+								<image width="512" height="512" href="data:image/png;base64,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"/>
+							  </svg>							  
 						</div>
 					</section>
-					
+
 					<section class="service">
 						<div class="service__body">
 							<h3 class="service__title">Creativity</h3>
 							<p class="service__text">Lorem ipsum dolor sit amet, cnsteteur adipscing elit, sed do
 								eiusmod tempor.</p>
 						</div>
-						<div class="service__iconWrapper">
-							<img class="service__icon" alt="Green icon of a clock" />
+						<div class="service__icon">
+							<!-- <img class="service__iconImage" alt="Green icon of a screen" /> -->
+							<svg  class="service__iconImage" width="682.667" height="682.667" version="1.0" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+								<path d="M4.4 38.8c-1.2.9-2.7 2.7-3.3 3.9-1.6 3.1-1.6 353.5 0 356.6.6 1.2 2.1 3 3.3 3.9 2 1.7 16.7 1.8 251.6 1.8s249.6-.1 251.6-1.8c1.2-.9 2.7-2.7 3.3-3.9 1.6-3.1 1.6-353.5 0-356.6-.6-1.2-2.1-3-3.3-3.9-2-1.7-16.7-1.8-251.6-1.8S6.4 37.1 4.4 38.8zM471 213.5V342H41V85h430v128.5zM260.6 365.6c5.9 2.8 8.2 10.3 4.7 15.4-2.7 4-4.5 4.9-9.3 4.9-4.8 0-6.6-.9-9.3-4.9-3.5-5-1.1-13.1 4.6-15.5 4.2-1.8 5.2-1.8 9.3.1z"/>
+								<path d="M278 175.5 229.5 224 208 202.4c-11.8-11.8-22.3-22-23.3-22.5-1.6-.9-3.9.9-15.3 12.2-7.4 7.3-13.7 14.2-14 15.2-.5 1.6 6.5 9.1 35.2 37.9 19.8 19.8 36.7 36.4 37.8 37 1.6.9 9.7-6.8 65.2-62.3C328.5 185 357 156 357 155.5c0-1.6-27.4-28.5-29-28.5-.8 0-23.3 21.8-50 48.5zM160.5 436.7l-24.6 23.7.3 7 .3 7.1h239l.3-7.1.3-7-24.6-23.7-24.6-23.7H185.1l-24.6 23.7z"/>
+							</svg>
 						</div>
 					</section>
 
@@ -140,8 +175,8 @@
 							<p class="service__text">Ipsum dolor sit amet, cosectetur adipiscin elit, sed do eiusmod
 								tempor..</p>
 						</div>
-						<div class="service__iconWrapper">
-							<img class="service__icon" alt="Green icon of a increasing line chart" />
+						<div class="service__icon">
+							<img class="service__iconImage" alt="Green icon of a increasing line chart" />
 						</div>
 					</section>
 
@@ -151,8 +186,8 @@
 							<p class="service__text">Lorem ipsum dolor sit amet, cnsteteur adipscing elit, sed do
 								eiusmod tempor.</p>
 						</div>
-						<div class="service__iconWrapper">
-							<img class="service__icon" alt="Green icon of a clock" />
+						<div class="service__icon">
+							<img class="service__iconImage" alt="Green icon of a clock" />
 						</div>
 					</section>
 
@@ -162,8 +197,8 @@
 							<p class="service__text">Ipsum dolor sit amet, cosectetur adipiscin elit, sed do eiusmod
 								tempor..</p>
 						</div>
-						<div class="service__iconWrapper">
-							<img class="service__icon" alt="Green icon of a increasing line chart" />
+						<div class="service__icon">
+							<img class="service__iconImage" alt="Green icon of a increasing line chart" />
 						</div>
 					</section>
 
@@ -175,10 +210,10 @@
 
 			<header class="article__header">
 				<h2 class="article__title">
-					<span class="article__title--cursive">
+					<span class="article__titleText article__titleText--cursive">
 						Who we are
 					</span>
-					<span class="article__title--uppercase">
+					<span class="article__titleText article__titleText--uppercase">
 						Meet Our TEAM
 					</span>
 				</h2>
@@ -190,13 +225,13 @@
 					incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
 					ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-				<div class="article__grid">
+				<div class="article__grid article__grid--teamMembers">
 
 					<section class="member">
-						<header class="member__header">
+						<header>
 							<h3 class="member__description">
-								<span class="member__description--name">Matthew Dix</span>
-								<span class="member__description--position">Graphic Design</span>
+								<span class="member__descriptionName">Matthew Dix</span>
+								<span class="member__descriptionPosition">Graphic Design</span>
 							</h3>
 						</header>
 						<div class="card">
@@ -207,7 +242,7 @@
 											<span class="visually-hidden">
 												Go to facebook of Matthew Dix
 											</span>
-											<img class="card__icon" aria-hidden="true" />
+											<img class="card__icon" aria-hidden="true" alt="F" />
 										</a>
 									</li>
 									<li class="card__contentListItem">
@@ -236,15 +271,16 @@
 									</li>
 								</ul>
 							</div>
-							<img class="card__img" alt="Picture of man in glasses" src="./dist/images/matthew-dix.jpg" />
+							<img class="card__img" alt="Picture of man in glasses"
+								src="./dist/images/matthew-dix.jpg" />
 						</div>
 					</section>
 
 					<section class="member">
-						<header class="member__header">
+						<header>
 							<h3 class="member__description">
-								<span class="member__description--name">Christopher campbell</span>
-								<span class="member__description--position">Branding/UX design</span>
+								<span class="member__descriptionName">Christopher campbell</span>
+								<span class="member__descriptionPosition">Branding/UX design</span>
 							</h3>
 						</header>
 						<div class="card">
@@ -284,15 +320,16 @@
 									</li>
 								</ul>
 							</div>
-							<img class="card__img" alt="Picture of man taking a picture" src="./dist/images/christopher-campbell.jpg" />
+							<img class="card__img" alt="Picture of man taking a picture"
+								src="./dist/images/christopher-campbell.jpg" />
 						</div>
 					</section>
 
 					<section class="member">
-						<header class="member__header">
+						<header>
 							<h3 class="member__description">
-								<span class="member__description--name">Michael Fertig</span>
-								<span class="member__description--position">Developer</span>
+								<span class="member__descriptionName">Michael Fertig</span>
+								<span class="member__descriptionPosition">Developer</span>
 							</h3>
 						</header>
 						<div class="card">
@@ -332,7 +369,8 @@
 									</li>
 								</ul>
 							</div>
-							<img class="card__img" alt="Picture of man with beard in red shirt" src="./dist/images/michael-fertig.jpg" />
+							<img class="card__img" alt="Picture of man with beard in red shirt"
+								src="./dist/images/michael-fertig.jpg" />
 						</div>
 					</section>
 
@@ -343,11 +381,11 @@
 
 	<footer class="footer">
 		<p class="footer__text">
-			&copy; 2016 MoGo free PSD template by <a href="#" rel="author">Laaqiq</a>
+			&copy; 2016 MoGo free PSD template by <a class="footer__textLink" href="#" rel="author">Laaqiq</a>
 		</p>
 		<form class="footer__form" method="POST" action="#">
 			<label for="subscription" class="visually-hidden">Your email</label>
-			<input name="subscription" id="subscription" type="email" autocomplete="email" placeholder="Youer Email" />
+			<input class="footer__formInput" name="subscription" id="subscription" type="email" autocomplete="email" placeholder="Your Email" />
 			<button class="footer__formButton" type="submit">Subscribe</button>
 		</form>
 	</footer>
@@ -355,4 +393,5 @@
 	<script src="dist/js/index.js" defer></script>
 
 </body>
+
 </html>

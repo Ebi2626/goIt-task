@@ -1,5 +1,8 @@
+@use 'sass:map';
 @import 'variables';
 @import 'colors';
+@import 'mixins';
+@import 'transitions';
 
 .header {
     position: relative;
@@ -18,19 +21,122 @@
     &__container {
         z-index: 1;
         position: relative;
+        @include container;
     }
     
     &__menu {
+        position: relative;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
+        color: $white;
+        font-family: 'Montserrat', sans-serif;
+
+        &Toggle {
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            background-color: transparent;
+            gap: 3px;
+            padding: 5px;
+            border: 0;
+            cursor: pointer;
+            @media screen and (min-width: map.get($breakpoints, "sm")) {
+                display: none;
+            }
+
+            &Line {
+                width: 20px;
+                height: 3px;
+                background-color: $white;
+            }
+
+            &:hover {
+                .header__menuToggleLine {
+                    background-color: $yellow;
+                }
+            }
+
+
+        }
+    }
+
+    &__branding {
+        padding: 12px 15px 18px;
+        &Link {
+            color: #fff;
+            font-weight: 700;
+            font-size: 20px;
+            text-decoration: none;
+        }
     }
 
     &__nav {
+        text-transform: uppercase;
+        font-size: 12px;
+        @media screen and (max-width: map.get($breakpoints, "sm")){
+            display: none;
+            &--open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                justify-content: center;
+                top:50px;
+                right: 0px;
+                width: 300px;
+                max-width: 100%; 
+                z-index: 2;
+                background-color: $white;
+                .header__navListItem {
+                    display: block;
+                    position: relative;
+                    padding: 0;
+                    color: $pink;
+                    &Link {
+                        display: block;
+                        color: $pink;
+                        text-align: center;
+                        width: 100%;
+                        height: 100%;
+                        padding: 15px 0;
+                        &:hover {
+                            background-color: $pink;
+                            color: $white;
+                            border: 0;
+                        }
+                    }
+                    
+                }
+            }
+        }
+
+
         &List {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+
+            @media screen and (min-width: map.get($breakpoints, "sm")){
+                flex-direction: row;
+            }
+
+
+            &Item {
+                padding: 19px 15px;
+                &Link {
+                    color: $white;
+                    font-weight: 500;
+                    text-decoration: none;
+                    padding: 6px 0;
+                    border-bottom: solid 2px $transparent;
+                    transition: $color-transition, $navItem-border-transition;
+                    &:hover {
+                        color: $yellow;
+                        border-bottom: solid 2px $yellow;
+                        transition: $color-transition, $navItem-border-transition;
+                    }
+                }
+            }
         }
     }
 
@@ -40,12 +146,17 @@
         justify-items: center;
         align-items: center;
         text-align: center;
+        padding-top: 100px;
+        max-width: calc(100vw - 30px);
 
         &Subtitle {
             font-weight: 400;
             font-family: 'Kaushan Script', cursive;
             margin-bottom: 20px;
-            font-size: 55px;
+            font-size: 35px;
+            @media screen and (min-width: map.get($breakpoints, "sm")) {
+                font-size: 55px;
+            }
         }
 
         &Title {
@@ -54,8 +165,11 @@
             padding-bottom: 20px;
             margin-bottom: 30px;
             text-align: center;
-            font-size: 110px;
             font-weight: 700;
+            font-size: 50px;
+            @media screen and (min-width: map.get($breakpoints, "sm")) {
+                font-size: 110px;
+            }
         }
 
         &Button {
@@ -67,6 +181,13 @@
             padding: 10px 20px;
             font-size: 12px;
             text-decoration: none;
+            margin-bottom: 80px;
+            transition: $border-transition, $background-transition;
+            &:hover {
+                border: solid 2px $pink;
+                background: $pink;
+                transition: $border-transition, $background-transition;
+            }
         }
     }
 }

@@ -1,0 +1,28 @@
+.member {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    &__description {
+        font-size: 12px;
+        text-align: center;
+
+        &Name, &Position {
+            display: block;
+            margin: 0 auto;
+        }
+
+        &Name {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px;
+        }
+        &Position {
+            font-style: italic;
+            color: $dark-grey;
+        }
+
+    }
+}

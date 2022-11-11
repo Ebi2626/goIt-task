@@ -1,0 +1,23 @@
+@use 'sass:map';
+@import 'variables';
+
+@mixin container() {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+    @each $name, $breakpoint in $breakpoints {
+        @media screen and (min-width: #{$breakpoint}){
+            width: map.get($widths, #{$name});
+        }
+    }
+    
+}
+
+@mixin greyText() {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $dark-grey;
+    font-family: 'Roboto', sans-serif;
+}

@@ -1,0 +1,72 @@
+@use 'sass:map';
+@import 'mixins';
+@import 'typography';
+@import 'variables';
+
+.article {
+    @include container;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    &__header {
+        position: relative;
+        margin-bottom: 30px;
+
+        &:after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: #f38181;
+            transform: translateX(-50%);
+        }
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        &Text {
+            display: inline-block;
+
+            &--cursive {
+                font-family: 'Kaushan Script', cursive;
+                margin-bottom: 20px;
+            }
+
+            &--uppercase {
+                text-transform: uppercase;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 25px;
+                padding-bottom: 20px;
+            }
+        }
+
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px 30px;
+        @media screen and (min-width: map.get($breakpoints, "sm")){
+            grid-template-columns: repeat(3, 1fr);
+        }
+        &:not(&--teamMembers) {
+            @media screen and (min-width: map.get($breakpoints, "xs")) and (max-width: map.get($breakpoints, "sm")) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        } 
+    }
+
+    &__text {
+        @include greyText;
+        text-align: center;
+        margin-bottom: 50px;
+
+    }
+}

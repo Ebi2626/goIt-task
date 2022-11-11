@@ -1,3 +1,11 @@
+@import 'colors';
+
+* {
+    &:focus {
+        outline: solid 2px $green;
+    }
+}
+
 .visually-hidden {
     position: absolute !important;
     width: 1px !important;
