@@ -1,33 +1,35 @@
 @use 'sass:map';
 @import 'variables';
+@import 'transitions';
 
 .card {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 100%;    
+    width: 100%;
 
-    @media screen and (min-width: map.get($breakpoints, "sm")) {        
-        &:hover {
+    &:hover,
+    &:focus-within {
+        .card__picture {
+            transform: translate(-5px, -5px);
+            transition: $translate-transition;
+
             &:after {
-                content: '';
-                display: inline-block;
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: $gradient;
-                z-index: 1;
-            }
-            .card__img {
-                box-shadow: 5px 5px $green;
-            }
-            .card__socials {
-                z-index: 2;
+                transition: $opacity-transition;
                 opacity: 1;
             }
+
+            &Img {
+                transition: $shadow-transition;
+                box-shadow: 5px 5px $green;
+            }
+        }
+
+        .card__socials {
+            z-index: 2;
+            opacity: 1;
+            @include opacityTransitionWithDelay(0.3);
         }
     }
 
@@ -40,30 +42,67 @@
         width: 120px;
         height: 40px;
         transform: translate(-50%, -50%);
+        transition: $opacity-transition;
+
         .card__contentList {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
 
             &Item {
                 .card__link {
-                    display: inline-block;
                     padding: 5px;
                     background-color: $yellow;
                     height: 100%;
                     width: 100%;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    transition: $color-transition, $background-transition;
+
+                    .card__icon {
+                        fill: $pink;
+                        transition: $fill-transition;
+                    }
+
                     &:hover {
+                        transition: $color-transition, $background-transition;
                         background-color: $pink;
                         color: $yellow;
+
+                        .card__icon {
+                            fill: $white;
+                            transition: $fill-transition;
+                        }
                     }
                 }
             }
         }
     }
 
-    &__img {
+    &__picture {
         position: relative;
-        width: 100%;
-        height: auto;
-        max-width: 290px;
+        transition: $translate-transition;
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $gradient;
+            z-index: 1;
+            opacity: 0;
+            transition: $opacity-transition;
+        }
+
+        &Img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 290px;
+            transition: $shadow-transition;
+        }
     }
 }

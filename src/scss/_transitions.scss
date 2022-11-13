@@ -2,3 +2,12 @@ $color-transition: color .2s ease-in-out;
 $navItem-border-transition: border-bottom .3s ease-in-out;
 $border-transition: border .3s ease-in-out;
 $background-transition: background .3s ease-in-out;
+$opacity-transition: opacity .3s ease-in-out;
+$shadow-transition: box-shadow .3s linear;
+$maxHeight-transition: max-height .5s ease-in-out;
+$fill-transition: fill .2s ease-in-out;
+$translate-transition: transform .3s ease-in-out;
+
+@mixin opacityTransitionWithDelay($delay) {
+    transition: opacity .3s #{$delay}s ease-in-out;
+}

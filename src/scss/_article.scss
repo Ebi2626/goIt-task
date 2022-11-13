@@ -1,6 +1,5 @@
 @use 'sass:map';
 @import 'mixins';
-@import 'typography';
 @import 'variables';
 
 .article {
@@ -53,14 +52,16 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 50px 30px;
-        @media screen and (min-width: map.get($breakpoints, "sm")){
+
+        @media screen and (min-width: map.get($breakpoints, "sm")) {
             grid-template-columns: repeat(3, 1fr);
         }
+
         &:not(&--teamMembers) {
             @media screen and (min-width: map.get($breakpoints, "xs")) and (max-width: map.get($breakpoints, "sm")) {
                 grid-template-columns: repeat(2, 1fr);
             }
-        } 
+        }
     }
 
     &__text {

@@ -6,12 +6,14 @@
     margin-left: auto;
     margin-right: auto;
     padding: 0 10px;
-    @each $name, $breakpoint in $breakpoints {
-        @media screen and (min-width: #{$breakpoint}){
+
+    @each $name,
+    $breakpoint in $breakpoints {
+        @media screen and (min-width: #{$breakpoint}) {
             width: map.get($widths, #{$name});
         }
     }
-    
+
 }
 
 @mixin greyText() {

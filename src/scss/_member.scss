@@ -8,7 +8,8 @@
         font-size: 12px;
         text-align: center;
 
-        &Name, &Position {
+        &Name,
+        &Position {
             display: block;
             margin: 0 auto;
         }
@@ -19,6 +20,7 @@
             font-family: 'Montserrat', sans-serif;
             margin-bottom: 10px;
         }
+
         &Position {
             font-style: italic;
             color: $dark-grey;

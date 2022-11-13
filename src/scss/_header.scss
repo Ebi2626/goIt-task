@@ -18,12 +18,13 @@
         height: 100%;
         background: $gradient;
     }
+
     &__container {
         z-index: 1;
         position: relative;
         @include container;
     }
-    
+
     &__menu {
         position: relative;
         display: flex;
@@ -42,6 +43,7 @@
             padding: 5px;
             border: 0;
             cursor: pointer;
+
             @media screen and (min-width: map.get($breakpoints, "sm")) {
                 display: none;
             }
@@ -64,6 +66,7 @@
 
     &__branding {
         padding: 12px 15px 18px;
+
         &Link {
             color: #fff;
             font-weight: 700;
@@ -75,24 +78,34 @@
     &__nav {
         text-transform: uppercase;
         font-size: 12px;
-        @media screen and (max-width: map.get($breakpoints, "sm")){
+
+        @media screen and (max-width: map.get($breakpoints, "sm")) {
             display: none;
+
+            &List {
+                transition: $maxHeight-transition;
+                overflow: hidden;
+                max-height: 0;
+            }
+
             &--open {
                 display: flex;
                 flex-direction: column;
                 position: absolute;
                 justify-content: center;
-                top:50px;
+                top: 50px;
                 right: 0px;
-                width: 300px;
-                max-width: 100%; 
+                width: 100%;
+                max-width: 100%;
                 z-index: 2;
                 background-color: $white;
+
                 .header__navListItem {
                     display: block;
                     position: relative;
                     padding: 0;
                     color: $pink;
+
                     &Link {
                         display: block;
                         color: $pink;
@@ -100,13 +113,45 @@
                         width: 100%;
                         height: 100%;
                         padding: 15px 0;
+                        border-bottom: 2px solid $pink;
+
+                        &Svg {
+                            &--color-fill {
+                                fill: $pink;
+                            }
+                        }
+
                         &:hover {
                             background-color: $pink;
                             color: $white;
-                            border: 0;
+
+                            .header__navListItemLinkSvg--color-fill {
+                                fill: $white;
+                            }
                         }
                     }
-                    
+
+                    &:not(:last-child) {
+                        .header__navListItemLink {
+                            &:hover {
+                                border-bottom: 2px solid $transparent;
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        .header__navListItemLink {
+                            border-bottom: 2px solid $transparent;
+                        }
+                    }
+
+                }
+
+                &.header__nav--completed {
+                    .header__navList {
+                        transition: $maxHeight-transition;
+                        max-height: 2000px;
+                    }
                 }
             }
         }
@@ -116,13 +161,17 @@
             display: flex;
             flex-direction: column;
 
-            @media screen and (min-width: map.get($breakpoints, "sm")){
+            @media screen and (min-width: map.get($breakpoints, "sm")) {
                 flex-direction: row;
             }
 
 
             &Item {
+                display: inline-flex;
+                flex-direction: row;
+                align-items: center;
                 padding: 19px 15px;
+
                 &Link {
                     color: $white;
                     font-weight: 500;
@@ -130,10 +179,34 @@
                     padding: 6px 0;
                     border-bottom: solid 2px $transparent;
                     transition: $color-transition, $navItem-border-transition;
+
+                    &Svg {
+                        width: 20px;
+                        height: 20px;
+
+                        &--color-fill {
+                            fill: $white;
+                        }
+                    }
+
+                    &--active {
+                        color: $yellow;
+                    }
+
                     &:hover {
                         color: $yellow;
                         border-bottom: solid 2px $yellow;
                         transition: $color-transition, $navItem-border-transition;
+                    }
+
+                    &--icon {
+                        &:hover {
+                            border-bottom: solid 2px $transparent;
+
+                            .header__navListItemLinkSvg {
+                                fill: $yellow;
+                            }
+                        }
                     }
                 }
             }
@@ -154,6 +227,7 @@
             font-family: 'Kaushan Script', cursive;
             margin-bottom: 20px;
             font-size: 35px;
+
             @media screen and (min-width: map.get($breakpoints, "sm")) {
                 font-size: 55px;
             }
@@ -167,6 +241,7 @@
             text-align: center;
             font-weight: 700;
             font-size: 50px;
+
             @media screen and (min-width: map.get($breakpoints, "sm")) {
                 font-size: 110px;
             }
@@ -183,6 +258,7 @@
             text-decoration: none;
             margin-bottom: 80px;
             transition: $border-transition, $background-transition;
+
             &:hover {
                 border: solid 2px $pink;
                 background: $pink;

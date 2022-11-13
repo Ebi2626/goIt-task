@@ -9,19 +9,17 @@
         max-width: 40px;
         max-height: 40px;
         position: relative;
+
         &Image {
             width: 40px;
             height: 40px;
             fill: $green;
+
             image {
                 width: 100%;
                 height: auto;
             }
         }
-    }
-
-    &__body {
-
     }
 
     &__title {
@@ -30,6 +28,7 @@
         text-transform: uppercase;
         margin: 5px 0 10px;
     }
+
     &__text {
         @include greyText;
         position: relative;
